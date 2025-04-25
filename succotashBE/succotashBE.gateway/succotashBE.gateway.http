@@ -1,0 +1,6 @@
+@succotashBE.gateway_HostAddress = http://localhost:5289
+
+GET {{succotashBE.gateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
