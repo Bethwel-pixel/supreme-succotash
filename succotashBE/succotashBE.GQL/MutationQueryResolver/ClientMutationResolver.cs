@@ -50,7 +50,7 @@ namespace succotashBE.GQL.MutationQueryResolver
             }
         }
 
-        #region Accounts
+        #region Clients
 
         //waking up services
         public async Task<FEOutput> CreateClient(CLIENTS client)
@@ -75,6 +75,162 @@ namespace succotashBE.GQL.MutationQueryResolver
             {
                 var userInfo = GetUserInfo();
                 var result = await CreatedDynamicService.UpdateDynamically(client);
+                return new FEOutput { Results = JsonConvert.SerializeObject(result) };
+            }
+            catch (Exception ex)
+            {
+                return new FEOutput { Error = JsonConvert.SerializeObject(ex) };
+            }
+        }
+        #endregion
+
+        #region Setups
+        // creating country
+        public async Task<FEOutput> CreateCountry(COUNTRY country)
+        {
+            try
+            {
+                var userInfo = GetUserInfo();
+                var result = await CreatedDynamicService.CreateDynamically(country);
+                return new FEOutput { Results = JsonConvert.SerializeObject(result) };
+            }
+            catch (Exception ex)
+            {
+                return new FEOutput { Error = JsonConvert.SerializeObject(ex) };
+            }
+        }
+
+        //updating country
+        public async Task<FEOutput> UpdateCountry(COUNTRY country)
+        {
+            try
+            {
+                var userInfo = GetUserInfo();
+                var result = await CreatedDynamicService.UpdateDynamically(country);
+                return new FEOutput { Results = JsonConvert.SerializeObject(result) };
+            }
+            catch (Exception ex)
+            {
+                return new FEOutput { Error = JsonConvert.SerializeObject(ex) };
+            }
+        }
+        // creating county
+        public async Task<FEOutput> CreateCounty(COUNTY county)
+        {
+            try
+            {
+                var userInfo = GetUserInfo();
+                county.Createdby = userInfo.UserId;
+                var result = await CreatedDynamicService.CreateDynamically(county);
+                return new FEOutput { Results = JsonConvert.SerializeObject(result) };
+            }
+            catch (Exception ex)
+            {
+                return new FEOutput { Error = JsonConvert.SerializeObject(ex) };
+            }
+        }
+
+        // updating county
+        public async Task<FEOutput> UpdateCounty(COUNTY county)
+        {
+            try
+            {
+                var userInfo = GetUserInfo();
+                county.Updatedby = userInfo.UserId;
+                var result = await CreatedDynamicService.UpdateDynamically(county);
+                return new FEOutput { Results = JsonConvert.SerializeObject(result) };
+            }
+            catch (Exception ex)
+            {
+                return new FEOutput { Error = JsonConvert.SerializeObject(ex) };
+            }
+        }
+        // creating subcounty
+        public async Task<FEOutput> CreateSubCounty(SUBCOUNTY subCounty)
+        {
+            try
+            {
+                var userInfo = GetUserInfo();
+                subCounty.Createdby = userInfo.UserId;
+                var result = await CreatedDynamicService.CreateDynamically(subCounty);
+                return new FEOutput { Results = JsonConvert.SerializeObject(result) };
+            }
+            catch (Exception ex)
+            {
+                return new FEOutput { Error = JsonConvert.SerializeObject(ex) };
+            }
+        }
+
+        // updating subcounty
+        public async Task<FEOutput> UpdateSubCounty(SUBCOUNTY subCounty)
+        {
+            try
+            {
+                var userInfo = GetUserInfo();
+                subCounty.Updatedby = userInfo.UserId;
+                var result = await CreatedDynamicService.UpdateDynamically(subCounty);
+                return new FEOutput { Results = JsonConvert.SerializeObject(result) };
+            }
+            catch (Exception ex)
+            {
+                return new FEOutput { Error = JsonConvert.SerializeObject(ex) };
+            }
+        }
+        // creating gender
+        public async Task<FEOutput> CreateGender(GendeR gender)
+        {
+            try
+            {
+                var userInfo = GetUserInfo();
+                gender.Createdby = userInfo.UserId;
+                var result = await CreatedDynamicService.CreateDynamically(gender);
+                return new FEOutput { Results = JsonConvert.SerializeObject(result) };
+            }
+            catch (Exception ex)
+            {
+                return new FEOutput { Error = JsonConvert.SerializeObject(ex) };
+            }
+        }
+
+        // updating gender
+        public async Task<FEOutput> UpdateGender(GendeR gender)
+        {
+            try
+            {
+                var userInfo = GetUserInfo();
+                gender.Updatedby = userInfo.UserId;
+                var result = await CreatedDynamicService.UpdateDynamically(gender);
+                return new FEOutput { Results = JsonConvert.SerializeObject(result) };
+            }
+            catch (Exception ex)
+            {
+                return new FEOutput { Error = JsonConvert.SerializeObject(ex) };
+            }
+        }
+        // creating Roles
+        public async Task<FEOutput> CreateRoles(GendeR gender)
+        {
+            try
+            {
+                var userInfo = GetUserInfo();
+                gender.Createdby = userInfo.UserId;
+                var result = await CreatedDynamicService.CreateDynamically(gender);
+                return new FEOutput { Results = JsonConvert.SerializeObject(result) };
+            }
+            catch (Exception ex)
+            {
+                return new FEOutput { Error = JsonConvert.SerializeObject(ex) };
+            }
+        }
+
+        // updating gender
+        public async Task<FEOutput> UpdateRoles(GendeR gender)
+        {
+            try
+            {
+                var userInfo = GetUserInfo();
+                gender.Updatedby = userInfo.UserId;
+                var result = await CreatedDynamicService.UpdateDynamically(gender);
                 return new FEOutput { Results = JsonConvert.SerializeObject(result) };
             }
             catch (Exception ex)

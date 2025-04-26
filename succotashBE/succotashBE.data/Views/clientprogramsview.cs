@@ -7,7 +7,7 @@ using JozyKQL.PG.Attributes;
 
 namespace succotashBE.data.Views
 {
-    internal class ClientProgramsView
+    public partial class ClientProgramsView
     {
         [PrimaryKey, OrderBy(rank: 1, orderByDesc: true)]
         public int? Id { get; set; }

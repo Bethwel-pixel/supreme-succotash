@@ -7,7 +7,7 @@ using JozyKQL.PG.Attributes;
 
 namespace succotashBE.data.Model
 {
-    internal class Roles
+    public partial class Roles
     {
         [PrimaryKey, OrderBy(rank: 1, orderByDesc: true)]
         public int? Id { get; set; }

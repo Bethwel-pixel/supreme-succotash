@@ -13,8 +13,11 @@ namespace succotashBE.data.Model
         public int? Id { get; set; }
         public string? Gender { get; set; }
         public int? Createdby { get; set; }
+        [IgnoreOnInsert]
         public int? Updatedby { get; set; }
+        [DateNow, IgnoreOnUpdate]
         public DateTime? Createdat { get; set; }
+        [DateNow, IgnoreOnInsert]
         public DateTime? Updatedat { get; set; }
     }
 }
