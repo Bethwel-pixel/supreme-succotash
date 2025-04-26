@@ -1,23 +1,92 @@
-# supreme-succotash
+Supreme Succotash
+Supreme Succotash is a health system designed using a microservices architecture.
+It uses PostgreSQL as the main database and provides services through both REST APIs and GraphQL.
 
-Health system
+Database
+Database: PostgreSQL
 
-# Database
+Description: All system data, including users, clients, programs, and system setups, is stored in PostgreSQL.
 
-postgresql database will be used for data storage of this system.
+Web API (C#)
+Framework: ASP.NET Core Web API
 
-# Backend Webapi (c#)
+Architecture: Microservices
 
-The project follows the microservices architecture for the api's. Dapper and JOzykql.pg orm's are used. Both rest api and graphql will be used where graphql will be used for fetching data from the database and rest api will be used for the sign in and sign up and the api for the clients profile.
+ORMs:
 
->All the CRUD operations will consume graphql endpoints.
+Dapper: A lightweight and fast ORM for database operations.
 
-###The CRUD operations handled by graphql are
-> Create client
-> create programs to a client
-> geting clients
-> getting clients by id
-> creating and fetching setups
-(gender, country, county, subcounty, roles)
+Jozykql.pg: An advanced ORM for PostgreSQL with GraphQL support.
 
-###The Rest api end points are in user signup and user login.
+Communication:
+
+GraphQL: Used mainly for data operations (CRUD).
+
+REST API: Used for user authentication (sign-up, login) and profile management.
+
+APIs
+GraphQL
+Handled through GraphQL:
+
+Clients
+
+Create a client
+
+Get all clients
+
+Get a client by ID
+
+Programs
+
+Create programs assigned to clients
+
+Setups
+
+Create and retrieve system setups such as:
+
+Gender
+
+Country
+
+County
+
+Subcounty
+
+Roles
+
+REST
+Handled through REST:
+
+Authentication
+
+Sign Up
+
+Sign In
+
+Profile Management
+
+Technologies Used
+ASP.NET Core Web API
+
+PostgreSQL
+
+Dapper
+
+Jozykql.pg
+
+GraphQL
+
+RESTful API
+
+Ocelot API Gateway
+
+Notes
+Authentication is handled using JWT Bearer tokens.
+
+Authorization is role-based across the system.
+
+Microservices are routed through an API Gateway (Ocelot).
+
+Each service exposes its own /graphql endpoint for GraphQL operations.
+
+The authentication service provides login and signup functionalities via REST endpoints.
