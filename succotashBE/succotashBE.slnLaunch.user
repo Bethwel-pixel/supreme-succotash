@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "succotashBE\\succotashBE.UserManagement.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "succotashBE.CustomerManagement\\succotashBE.CustomerManagement.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "succotashBE.gateway\\succotashBE.gateway.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
