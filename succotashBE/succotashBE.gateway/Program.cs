@@ -13,13 +13,13 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigins", builder =>
     {
-        builder.WithOrigins("http://localhost:4200") // Adjust as needed
+        builder.WithOrigins("http://localhost:3000") // Adjust as needed
                .AllowAnyHeader()
                .AllowAnyMethod();
     });
     options.AddPolicy("ProdAllowSpecificOrigins", builder =>
     {
-        builder.WithOrigins("https://your-production-url.com")
+        builder.WithOrigins("http://localhost:3000")
                .AllowAnyHeader()
                .AllowAnyMethod();
     });

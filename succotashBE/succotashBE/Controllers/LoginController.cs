@@ -61,11 +61,12 @@ namespace succotashBE.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<ActionResult> Login(String usernameoremail, string? HashedPassword)
+        public async Task<ActionResult> Login([FromBody] Users users)
         {
+            string? searchparam = users.Username ?? users.Email;
             FetchUserbyusername fetchuser = new FetchUserbyusername
             {
-                Username = usernameoremail
+                Username = searchparam
             };
 
             UsersView user = new UsersView();
@@ -74,12 +75,12 @@ namespace succotashBE.Controllers
             if (retrievedUser == null)
             {
                 // user.HashedPassword = null; 
-                string errorMessage = $"User with email/username {usernameoremail} doesnt exist";
+                string errorMessage = $"User with email/username {searchparam} doesnt exist";
                 return Unauthorized("Invalid Credentials");
             }
 
 
-            bool authorized = VerifyPassword(HashedPassword!, retrievedUser.Password!);
+            bool authorized = VerifyPassword(users.Password!, retrievedUser.Password!);
             
             if (!authorized)
             {
